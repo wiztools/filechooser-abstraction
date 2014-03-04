@@ -52,10 +52,10 @@ public class FDFileChooser implements FileChooser {
     }
     
     private void setFDOptions(FileDialog fd) {
-        fd.setDirectory(currentDir.getAbsolutePath());
+        if(currentDir != null) fd.setDirectory(currentDir.getAbsolutePath());
         fd.setMultipleMode(multipleMode);
-        fd.setTitle(title);
-        fd.setFilenameFilter(ff);
+        if(title != null) fd.setTitle(title);
+        if(ff != null) fd.setFilenameFilter(ff);
     }
     
     private FileDialog getFileDialog(Component parent) throws IllegalArgumentException {
