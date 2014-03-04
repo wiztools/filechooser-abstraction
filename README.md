@@ -14,7 +14,7 @@ An abstraction library (adapter pattern) to easily switch between JFileChooser a
 	...
 
 	fc.setDialogTitle("JFileChooser");
-	FileChooserResponse res = fc.showOpenDialog(this); // this could be Frame / Dialog
+	FileChooserResponse res = fc.showOpenDialog(this); // `this' could be Frame / Dialog
 	if(res == FileChooserResponse.APPROVE_OPTION) {
 		File f = fc.getSelectedFile();
 		// your code
