@@ -51,3 +51,12 @@ Using FileFilter:
 
 	// 3. Assign the FileFilter to the FileChooser:
 	fc.setFileFilter(ff);
+
+## Why?
+
+JFileChooser is the preferred way of doing things in Java. But, if you want to comply to Apple Sandbox requirements when on-boarding your app to Mac App Store, you must use FileDialog instead of JFileChooser (FileDialog uses NSOpenDialog and NSSaveDialog internally).
+
+This library may be used to:
+
+1. Modify your app to use FileDialog with minimal code change.
+2. Support FileDialog in Mac platform, and JFileChooser in other platforms, with very less code specific to each platform.
