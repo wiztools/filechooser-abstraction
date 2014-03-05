@@ -3,6 +3,7 @@ package org.wiztools.filechooser;
 import java.awt.Component;
 import java.io.File;
 import javax.swing.JFileChooser;
+import javax.swing.filechooser.FileView;
 
 /**
  *
@@ -60,4 +61,7 @@ public class JFCFileChooser implements FileChooser {
         return FileChooserResponse.CANCEL_OPTION;
     }
     
+    public void setFileView(FileView fv) {
+        jfc.setFileView(fv);
+    }
 }
