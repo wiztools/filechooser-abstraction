@@ -2,6 +2,8 @@ package org.wiztools.filechooser;
 
 import java.awt.Component;
 import java.io.File;
+import java.util.HashMap;
+import java.util.Map;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileView;
 
@@ -12,15 +14,25 @@ import javax.swing.filechooser.FileView;
 public class JFCFileChooser implements FileChooser {
     
     private final JFileChooser jfc = new JFileChooser();
+    
+    private final Map<javax.swing.filechooser.FileFilter, FileFilter> filterMap = new HashMap<>();
 
     @Override
     public void addChoosableFileFilter(FileFilter ff) {
-        jfc.addChoosableFileFilter(new JFCFileFilter(ff));
+        javax.swing.filechooser.FileFilter jfcFF = new JFCFileFilter(ff);
+        filterMap.put(jfcFF, ff);
+        jfc.addChoosableFileFilter(jfcFF);
     }    
 
     @Override
     public void setFileFilter(FileFilter ff) {
         jfc.setFileFilter(new JFCFileFilter(ff));
+    }
+
+    @Override
+    public FileFilter getFileFilter() {
+        javax.swing.filechooser.FileFilter jfcFF = jfc.getFileFilter();
+        return filterMap.get(jfcFF);
     }
 
     @Override

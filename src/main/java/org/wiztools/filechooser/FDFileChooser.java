@@ -14,7 +14,9 @@ import java.io.FilenameFilter;
 public class FDFileChooser implements FileChooser {
     
 
-    private FilenameFilter ff;
+    private FileFilter ff;
+    private FilenameFilter filenameFilter;
+    
     private File selectedFile;
     private File setSelectedFile;
     private File[] selectedFiles;
@@ -29,7 +31,13 @@ public class FDFileChooser implements FileChooser {
     
     @Override
     public void setFileFilter(FileFilter ff) {
-        this.ff = new FDFileFilter(ff);
+        this.ff = ff;
+        this.filenameFilter = new FDFileFilter(ff);
+    }
+
+    @Override
+    public FileFilter getFileFilter() {
+        return ff;
     }
 
     @Override
@@ -66,7 +74,7 @@ public class FDFileChooser implements FileChooser {
         if(currentDir != null) fd.setDirectory(currentDir.getAbsolutePath());
         fd.setMultipleMode(multipleMode);
         if(title != null) fd.setTitle(title);
-        if(ff != null) fd.setFilenameFilter(ff);
+        if(filenameFilter != null) fd.setFilenameFilter(filenameFilter);
         if(setSelectedFile != null) {
             fd.setFile(setSelectedFile.getAbsolutePath());
             setSelectedFile = null;

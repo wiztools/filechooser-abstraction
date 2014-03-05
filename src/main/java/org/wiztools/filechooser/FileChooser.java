@@ -10,6 +10,7 @@ import java.io.File;
 public interface FileChooser {
     void setFileFilter(FileFilter ff);
     void addChoosableFileFilter(FileFilter ff);
+    FileFilter getFileFilter();
     
     File getSelectedFile();
     File[] getSelectedFiles();
