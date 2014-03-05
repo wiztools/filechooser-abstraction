@@ -16,10 +16,16 @@ public class FDFileChooser implements FileChooser {
 
     private FilenameFilter ff;
     private File selectedFile;
+    private File setSelectedFile;
     private File[] selectedFiles;
     private String title;
     private boolean multipleMode = false;
     private File currentDir;
+
+    @Override
+    public void addChoosableFileFilter(FileFilter ff) {
+        setFileFilter(ff);
+    }
     
     @Override
     public void setFileFilter(FileFilter ff) {
@@ -34,6 +40,11 @@ public class FDFileChooser implements FileChooser {
     @Override
     public File[] getSelectedFiles() {
         return selectedFiles;
+    }
+
+    @Override
+    public void setSelectedFile(File f) {
+        this.setSelectedFile = f;
     }
 
     @Override
@@ -56,6 +67,10 @@ public class FDFileChooser implements FileChooser {
         fd.setMultipleMode(multipleMode);
         if(title != null) fd.setTitle(title);
         if(ff != null) fd.setFilenameFilter(ff);
+        if(setSelectedFile != null) {
+            fd.setFile(setSelectedFile.getAbsolutePath());
+            setSelectedFile = null;
+        }
     }
     
     private FileDialog getFileDialog(Component parent) throws IllegalArgumentException {

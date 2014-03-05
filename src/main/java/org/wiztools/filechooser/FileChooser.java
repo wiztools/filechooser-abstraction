@@ -9,8 +9,13 @@ import java.io.File;
  */
 public interface FileChooser {
     void setFileFilter(FileFilter ff);
+    void addChoosableFileFilter(FileFilter ff);
+    
     File getSelectedFile();
     File[] getSelectedFiles();
+    
+    void setSelectedFile(File f);
+    
     void setDialogTitle(String title);
     void setMultiSelectionEnabled(boolean enable);
     

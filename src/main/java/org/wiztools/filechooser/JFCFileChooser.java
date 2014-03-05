@@ -14,6 +14,11 @@ public class JFCFileChooser implements FileChooser {
     private final JFileChooser jfc = new JFileChooser();
 
     @Override
+    public void addChoosableFileFilter(FileFilter ff) {
+        jfc.addChoosableFileFilter(new JFCFileFilter(ff));
+    }    
+
+    @Override
     public void setFileFilter(FileFilter ff) {
         jfc.setFileFilter(new JFCFileFilter(ff));
     }
@@ -26,6 +31,11 @@ public class JFCFileChooser implements FileChooser {
     @Override
     public File[] getSelectedFiles() {
         return jfc.getSelectedFiles();
+    }
+
+    @Override
+    public void setSelectedFile(File f) {
+        jfc.setSelectedFile(f);
     }
 
     @Override
