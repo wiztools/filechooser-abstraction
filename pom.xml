@@ -10,11 +10,27 @@
     <name>filechooser-abstraction</name>
     <url>https://github.com/wiztools/filechooser-abstraction</url>
     
+    <licenses>
+        <license>
+            <name>Apache License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.html</url>
+        </license>
+    </licenses>
+    
     <scm>
         <connection>scm:git:https://github.com/wiztools/filechooser-abstraction.git</connection>
         <developerConnection>scm:git:https://github.com/wiztools/filechooser-abstraction.git</developerConnection>
         <url>https://github.com/wiztools/filechooser-abstraction</url>
     </scm>
+    
+    <developers>
+        <developer>
+            <id>subwiz</id>
+            <name>Subhash Chandran</name>
+            <email>subwiz [at] gmail [dot] com</email>
+            <organization>WizTools.org</organization>
+        </developer>
+    </developers>
     
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
